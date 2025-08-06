@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>digital Business Card</title>
+  <!-- 
+    DİJİTAL İŞ KARTI PROJESİ
+    Telif Hakkı (c) 2024 İbrahim Dağdeviren - Tüm Hakları Saklıdır
+    Bu proje ticari kullanım için izin gerektirir.
+    İzin talepleri: ibrahimdagdevirentxt@gmail.com
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* --- Stil kodları (önceki mesajdaki kodla aynı, tekrar etmiyorum) --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.5s ease, color 0.5s ease;
+      padding: 20px 15px 40px;
+    }
+
+    /* Dark Mode */
+    body[data-theme="dark"] {
+      background: radial-gradient(circle at top, #0f0f0f, #000);
+      color: #fff;
+    }
+
+    body[data-theme="dark"] .profile-img {
+      border: 3px solid #00f0ff;
+      box-shadow: 0 0 20px #00f0ff99;
+    }
+
+    body[data-theme="dark"] h1 {
+      background: linear-gradient(90deg, #00f0ff, #007bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 30px;
+    }
+
+    body[data-theme="dark"] p {
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    body[data-theme="dark"] .share-btn,
+    body[data-theme="dark"] .button {
+      background: linear-gradient(90deg, #00f0ff, #007bff);
+      color: #fff;
+      box-shadow: 0 0 12px #00f0ff88;
+      border: none;
+    }
+
+    body[data-theme="dark"] .button {
+      background: linear-gradient(145deg, #1b1b1b, #0d0d0d);
+      border: 1px solid #2c2c2c;
+      box-shadow: inset 0 0 0 #00f0ff;
+      font-size: 16px;
+      padding: 14px 20px;
+    }
+
+    body[data-theme="dark"] .button:hover {
+      background: #1a1a1a;
+      box-shadow: 0 4px 15px #00f0ff66, inset 0 0 15px #00f0ff44;
+      transform: translateY(-2px);
+    }
+
+    body[data-theme="dark"] .share-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    body[data-theme="dark"] .socials a {
+      color: white;
+    }
+
+    body[data-theme="dark"] .socials a:hover {
+      color: #00f0ff;
+      transform: scale(1.2);
+    }
+
+    body[data-theme="dark"] .footer {
+      color: #666;
+      font-size: 11px;
+    }
+
+    body[data-theme="dark"] .footer-glow {
+      background: linear-gradient(270deg, #00f0ff, #ff00d4, #00f0ff);
+      background-size: 600% 600%;
+      animation: glowMove 5s ease infinite;
+    }
+
+    /* Light Mode */
+    body[data-theme="light"] {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      color: #212529;
+    }
+
+    body[data-theme="light"] .profile-img {
+      border: 3px solid #0077ff;
+      box-shadow: 0 0 20px #0077ff66;
+    }
+
+    body[data-theme="light"] h1 {
+      background: linear-gradient(90deg, #0077ff, #00bfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 30px;
+    }
+
+    body[data-theme="light"] p {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    body[data-theme="light"] .share-btn,
+    body[data-theme="light"] .button {
+      background: linear-gradient(90deg, #00bfff, #0077ff);
+      color: #222;
+      border: 1px solid #ccc;
+      box-shadow: none;
+    }
+
+    body[data-theme="light"] .button {
+      font-size: 16px;
+      padding: 14px 20px;
+    }
+
+    body[data-theme="light"] .button:hover {
+      background: #cce7ff;
+      box-shadow: 0 4px 15px #0077ff66, inset 0 0 15px #0077ff44;
+      transform: translateY(-2px);
+    }
+
+    body[data-theme="light"] .share-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    body[data-theme="light"] .socials a {
+      color: #222;
+    }
+
+    body[data-theme="light"] .socials a:hover {
+      color: #0077ff;
+      transform: scale(1.2);
+    }
+
+    body[data-theme="light"] .footer {
+      color: #999;
+      font-size: 11px;
+    }
+
+    body[data-theme="light"] .footer-glow {
+      background: linear-gradient(270deg, #0077ff, #ff00d4, #0077ff);
+      background-size: 600% 600%;
+      animation: glowMove 5s ease infinite;
+    }
+
+    @keyframes glowMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Genel stiller */
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 30px auto 15px auto;
+      transition: transform 0.4s;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    .share-btn {
+      padding: 10px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+      user-select: none;
+      border: none;
+      box-shadow: none;
+      font-size: 15px;
+    }
+
+    .button {
+      width: 90%;
+      max-width: 500px;
+      margin: 10px auto;
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: inset 0 0 0 #00f0ff;
+      user-select: none;
+      border: 1px solid transparent;
+      font-size: 15px;
+    }
+
+    .socials {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.socials a img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 3px rgba(0, 240, 255, 0.5));
+}
+
+.socials a:hover img {
+  transform: scale(1.3) rotate(5deg);
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.8));
+}
+
+
+    .footer {
+      margin-top: 30px;
+      font-size: 11px;
+    }
+
+ .footer-glow {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 8px; /* yükseklik artırıldı */
+    background: linear-gradient(270deg, #00f0ff, #ff00d4, #00f0ff);
+    background-size: 600% 600%;
+    animation: glowMove 5s ease infinite;
+    margin: 0;
+    z-index: 9999;
+  }
+    /* Tema değiştirici buton */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 240, 255, 0.15);
+      cursor: pointer;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+      transition: color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      user-select: none;
+      z-index: 9999;
+      color: var(--icon-color);
+      backdrop-filter: blur(5px);
+    }
+
+    #theme-toggle:hover {
+      color: var(--icon-hover-color);
+      background: rgba(0, 240, 255, 0.3);
+      box-shadow: 0 0 15px var(--icon-hover-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 400px) {
+      .button {
+        font-size: 13px;
+        padding: 12px 15px;
+      }
+
+      .profile-img {
+        width: 100px;
+        height: 100px;
+        margin: 25px auto 10px auto;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .share-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .socials a {
+        font-size: 24px;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <!-- Tema değiştirme butonu -->
+  <button id="theme-toggle" aria-label="Tema Değiştir" title="Tema Değiştir">🌓</button>
+
+  <div>
+    <img src="img/cekutxt.png" alt="Dijital Yazılım" class="profile-img" />
+    <h1>İbrahim Dağdeviren</h1>
+    <p>Mid. Front-End Developer 💻 | Web & Wordpress Uzmanı</p>
+
+    <div class="share-btn" onclick="copyLink()">🔗 Linki Paylaş</div>
+
+    <div class="button" onclick="window.open('https://erdemduran.tr/')">🌐 Kişisel Web Sitem <span>➡️</span></div>
+    <div class="button" onclick="window.open('https://www.dijitalwebtasarim.com.tr/')">🖥️ Dijital Web Tasarım <span>➡️</span></div>
+    <div class="button" onclick="window.open('https://www.dijitaldomain.net.tr/')">💬 Dijital Domain  <span>➡️</span></div>
+    <div class="button" onclick="window.open('https://www.dijitalqrkodmenu.com/')">💻 Dijital QR Kod Menü <span>➡️</span></div>
+    <div class="button" onclick="window.open('https://wordpressrehberi.net/')">✍️ WordPress Rehberi<span>➡️</span></div>
+    <div class="button" onclick="window.open('https://www.r10.net/profil/187994-duranerdem71.html')"> 👤 R10 Profilim <span>➡️</span></div>
+
+   <div class="socials">
+  <a href="https://www.instagram.com/erdemduran.tr/" target="_blank" aria-label="Instagram">
+    <img src="img/instagram (2).png" alt="Instagram" />
+  </a>
+  <a href="https://github.com/erdemduran" target="_blank" aria-label="Github">
+    <img src="img/github (2).png" alt="Github" />
+  </a>
+  <a href="https://www.linkedin.com/in/erdemduran/" target="_blank" aria-label="LinkEdin">
+    <img src="img/linkedin (2).png" alt="LinkEdin" />
+  </a>
+    <a href="https://web.whatsapp.com/send?phone=+905345948147" target="_blank" aria-label="Whatsapp">
+    <img src="img/whatsapp.png" alt="Whatsapp" />
+  </a>
+</div>
+
+
+    <div class="footer">cekutxt</div>
+    <div class="footer" style="font-size: 10px; margin-top: 5px; opacity: 0.7;">
+      © 2024 İbrahim Dağdeviren - Tüm Hakları Saklıdır
+    </div>
+  </div>
+
+  <div class="footer-glow"></div>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '🌞';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '🌓';
+      }
+    });
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert('Link kopyalandı!'))
+        .catch(() => alert('Link kopyalanamadı!'));
+    }
+  </script>
+</body>
+
+</html>

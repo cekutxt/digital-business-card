@@ -1,25 +1,74 @@
-# 💼 Digital Business Card
+# Dijital İş Kartı Projesi
 
-This is a personal digital business card built using HTML, CSS, and JavaScript.  
-It includes my contact information, social media links, and a brief introduction.
+## 📋 Proje Hakkında
 
+Bu proje, İbrahim Dağdeviren tarafından geliştirilmiş modern ve responsive bir dijital iş kartı uygulamasıdır. Proje, karanlık/aydınlık tema desteği, sosyal medya entegrasyonu ve modern CSS animasyonları içermektedir.
 
-## ✨ Features
+## ⚠️ ÖNEMLİ LİSANS UYARISI
 
-- Responsive design
-- Clickable social icons
-- Downloadable vCard (optional)
-- Dark mode support (optional)
+**Bu proje telif hakkı ile korunmaktadır ve ticari kullanım için izin gerektirir.**
 
-## 🔧 Technologies Used
+### 🚫 Yasak Olan Kullanımlar:
+- Ticari amaçla satış, dağıtım veya kiralama
+- Kaynak kodunun kopyalanması ve başka projelerde kullanılması
+- Reverse engineering
+- Telif hakkı bildirimlerinin kaldırılması
 
-- HTML / CSS / JavaScript
+### ✅ İzin Verilen Kullanımlar:
+- Kişisel kullanım
+- Eğitim amaçlı inceleme
+- Kendi projeleriniz için referans olarak kullanma
 
-## 🚀 Live Demo
+## 📞 İzin Talepleri
 
-You can see it live here: [demo link - e.g., GitHub Pages, Vercel, Netlify]
+Ticari kullanım için izin almak istiyorsanız:
+- **E-posta:** ibrahimdagdevirentxt@gmail.com
+- **Web Sitesi:** https://ascentmedya.com/
 
-## 📬 Contact
+## 🛠️ Teknolojiler
 
-- Email: ibrahimdagdevirentxt@gmail.com 
-- GitHub: https://github.com/cekutxt
+- HTML5
+- CSS3 (Modern animasyonlar ve gradientler)
+- JavaScript (Vanilla)
+- Responsive Design
+- Dark/Light Theme Toggle
+
+## 📁 Proje Yapısı
+
+```
+digital-business-card/
+├── index.html          # Ana HTML dosyası
+├── img/               # Görseller klasörü
+│   ├── cekutxt.png
+│   ├── github (2).png
+│   ├── instagram (2).png
+│   ├── linkedin (2).png
+│   └── whatsapp.png
+├── LICENSE            # Lisans dosyası
+└── README.md          # Bu dosya
+```
+
+## 🎨 Özellikler
+
+- ✨ Modern ve şık tasarım
+- 🌓 Karanlık/Aydınlık tema değiştirme
+- 📱 Tam responsive tasarım
+- 🔗 Sosyal medya entegrasyonu
+- 📋 Link paylaşım özelliği
+- 🎭 CSS animasyonları
+- ⚡ Hızlı yükleme
+
+## 📄 Lisans
+
+Bu proje özel lisans altında korunmaktadır. Detaylar için `LICENSE` dosyasını inceleyiniz.
+
+## 👨‍💻 Geliştirici
+
+**İbrahim Dağdeviren**
+- Mid. Front-End Developer
+- Web & WordPress Uzmanı
+- Dijital Web Tasarım Uzmanı
+
+---
+
+**© 2024 İbrahim Dağdeviren - Tüm Hakları Saklıdır** 
